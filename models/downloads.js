@@ -34,6 +34,9 @@ function load (k, cb) {
   var pkg = k[1]
   var detail = k[2]
 
+  if (!config.downloads) {
+    return cb(null, 0)
+  }
   var endpoint = config.downloads.url + detail + "/" + period
   if (pkg) endpoint += "/" + pkg
 
